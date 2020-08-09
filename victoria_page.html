@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>BodyShop</title>
+
+<script>
+filterSelection("all");
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c === "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) === -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script><script>
+filterSelection("all");
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c === "all"){
+      c = "";}
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) === -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+</script>
+
+<style >
+.bar1{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+background-color:#EC5EBD;
+float:right;
+}
+.bar2{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+background-color:#EC96CF;
+}
+
+li{
+float:left;
+
+}
+
+li a{
+display:block;
+padding:10px;
+}
+a:link{
+color:white;
+text-decoration:none;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #EC96CF;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: purple;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 75px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FEF5FB;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 60px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+h4{color: #cb2a98; font-family: MV Boli; font-size: 20px}
+p{font-size: 15px; color: #666666; font-family: Calibri;}
+a{font-size: 20px; color: black;font-family: MV Boli;}
+
+
+</style>
+
+
+<meta charset="utf-8"/>
+</head>
+<body onload="filterSelection('all')">
+    
+    
+<ul class="bar1">
+    <li> <a href="viewcart.php" style="color:white;"> MY CARD  &nbsp;| </a></li>
+<li> <a href="contactus_page.php" style="color:white;"> CONTACT US  &nbsp;| </a></li>
+<li> <a href="logout.php" style="color:white;"> LOGOUT &nbsp;   </a></li>
+</ul>
+     <br><img src="images/BODYSHOP.jpg" alt="logo" style="display: block; margin-left: auto; margin-right: auto; width:30%"><br>
+
+<div class="navbar">
+ <a href="home_page.php" style="color:white;">HOME </a>
+<div class="dropdown"> 
+<button class="dropbtn"  onclick="filterSelection('all')" style="background-color: #cb2a98 " > VICTORIA SECRET &nbsp;&nbsp; &#10148;</button>
+ </div> 
+
+<div class="dropdown"> 
+<button class="dropbtn"> BATH AND BODY WORKS &nbsp;&nbsp; &#10148; </button>
+ <div class="dropdown-content">
+ <a href="perfume.html" style="color:black;"> PERFUMES </a>
+ <a href="bodylotion.html" style="color:black;"> MISTS</a>
+<a href="mists.html" style="color:black;"> BODYLOTIONS </a>
+<a href="sets.html" style="color:black;" > SETS</a>
+</div> </div> </div>
+
+<h2 style="color:purple;">VICTORIA SECRET</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('perfume')"> Perfumes</button>
+  <button class="btn" onclick="filterSelection('mists')"> Mists</button>
+  <button class="btn" onclick="filterSelection('bodylotion')"> Bodylotions</button>
+  <button class="btn" onclick="filterSelection('sets')"> Sets</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<form method="post" action="insertcart.php">
+<div class="row">
+    
+  <div class="column perfume">
+    <div class="content">
+      <img src="v_perfume/v_perfume1.jpg" alt="Bombshell" style="width:100%">
+      <h4>Bombshell Intense Eau de Parfum</h4>
+      <p>Introducing Bombshell Intense, a provocative new addition to our iconic Bombshell Fragrance Collection. Inspired by the perfect red,
+          Bombshell Intense embodies all the color implies. Lush Cherry, creamy and bright. Red Peony for a rich,
+          saturated take on Bombshell’s signature, petally floral. Sultry Vanilla wraps the fragrance in decadent warmth.
+          Power, strength, glamour, passion…Bombshell Intense.<br><br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Chypre Fruity Floral<br>
+          *Notes: Lush Cherry, Red Peony and Sultry Vanilla<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br>
+      <a>$78</a></p>
+      <input type="text" name="qty" value="1">
+      <input type="hidden" name="name" value="Bombshell Intense Eau de Parfum">
+    <input type="hidden" name="price" value="$78">
+    <input type="submit" name="addCart" value="Add to Card">
+    </div>
+  </div>
+  <div class="column perfume">
+    <div class="content">
+    <img src="v_perfume/v_perfume2.jpg" alt="Angel" style="width:100%">
+      <h4>Very Sexy Night Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you: Very Sexy Night is back. 
+          Notes of Black Plum and Apple sparkle against dark florals. Velvety Woods and sultry musks add sensual depth.
+          Intoxicating and warm, this Night is definitely not for sleeping.<br><br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br>
+          <a>$78</a></p>
+    </div>
+  </div>
+  <div class="column perfume">
+    <div class="content">
+    <img src="v_perfume/v_perfume3.jpg" alt="Love" style="width:100%">
+      <h4>Love Eau de Parfum</h4>
+      <p>The iconic fragrance. LOVE smells like fresh air, blush blooms and boyfriend tees—a little bit of him, sexier on her.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br><br>
+          *Fragrance type: Fresh<br>
+          *Notes: Fresh Juniper, Apricot Blush and Boyfriend Tee<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br><a>$78</a></p>
+    </div>
+  </div>
+
+    <div class="column perfume">
+    <div class="content">
+    <img src="v_perfume/v_perfume4.jpg" alt="Bombshell" style="width:100%">
+      <h4>Tease Eau de Parfum</h4>
+      <p>There’s nothing more personal than fragrance—you want yours to enhance your individuality.
+          That’s why it was important to us to make sure Tease created a unique signature on each woman who wears it.
+          We started with gardenia petals spiked with Black Vanilla. The unexpected bite of Frozen Pear. A touch of Sandalwood. 
+          Warm yet fresh, the notes amplify in reaction to your body heat, so the fragrance blooms on skin. It’s instantly addictive.
+          And totally you.<br><br>
+
+         * New look, same award-winning fragrance<br>
+         * Eau de Parfum is our most pure, concentrated version of the fragrance<br>
+         * Fragrance type: Warm Gourmand<br>
+         * Notes: Black Vanilla, Frozen Pear and Blooming Gardenia<br>
+         * 100 ml/3.4 fl. oz.<br>
+         * Domestic<br><br><br><a>$78</a> </p>
+    </div>
+  </div>
+ <div class="column perfume">
+    <div class="content">
+    <img src="v_perfume/v_perfume5.jpg" alt="Bombshellseduction" style="width:100%">
+      <h4>Heavenly Eau de Parfum</h4>
+      <p>Our original Victoria’s Secret Angel, Heavenly adds richness and warmth to everything she touches.
+          The scent was created to capture the inner strength and luminosity inside of every woman—the radiance of her spirit.
+          It opens with a hint of effervescent fruits. A hand-crafted bouquet of romantic white florals is at the heart: Peony, Freesia, Lotus.
+          Enveloped in Gold Musk, Creamy Sandalwood and Bourbon Vanilla for sensual warmth and sophistication. 
+          Luminous in gold. Loved by all. The one and only, Heavenly.<br><br>
+
+          *The Heavenly fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Warm<br>
+          *Notes: Sandalwood, Vanilla and White Peony<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br>
+          <a>$78</a></p>
+    </div>
+  </div>
+    
+  <div class="column mists">
+    <div class="content">
+    <img src="v_mist/v_mist1.jpg" alt="Pure Seduction" style="width:100%">
+      <h4>Wild Blooms Fragrance Mists</h4>
+      <p>It’s elemental. From untamed poppies to passion flowers and desert lilies, this season’s florals are
+          raw, natural and captured in the wild. It’s a fragrance adventure, 
+          and it starts with you.<br>
+          *WILD PRIMROSE<br>
+          *Floral. Primrose twist. Luscious gardenia. Endless blooms.<br>
+          *250 ml/8.4 fl oz<br>
+          *Domestic<br><br><br><a>$18</a></p><br>
+      <input type="text" name="quantity" value="1">
+      <input type="hidden" name="name" value="Wild Blooms Fragrance Mists">
+    <input type="hidden" name="price" value="18">
+    <input type="submit" name="addCart" value="Add to Card">
+    </div>
+  </div>
+  <div class="column mists">
+    <div class="content">
+    <img src="v_mist/v_mist2.jpg" alt="Blush" style="width:100%">
+      <h4>Sunkissed Fragrance Mists</h4>
+      <p>Sunny days ahead. Our top scents brighten up with a luminous twist beaming with golden woods, 
+          sheer musks, solar blooms and amber accords. It’s a fragrance adventure, and it starts with you.<br>
+          *PURE SEDUCTION SUNKISSED<br>
+          *Fruity Floral. Tiare flower. Guava glow. Pure Seduction in the sun.<br>
+          *250 ml/8.4 fl oz<br>
+          *Domestic<br><br><br><a>$18</a></p>
+    </div>
+  </div>
+<div class="column mists">
+    <div class="content">
+    <img src="v_mist/v_mist3.jpg" alt="velvetShimmer" style="width:100%">
+      <h4>Fresh Oasis Fragrance Mists</h4>
+      <p>t’s the beginning of...anything you want. Positive and optimistic, with fragrances to match. Find your shine in lush greens,
+          waterfall mists, cascading florals and sacred woods. It’s a fragrance adventure, and it starts with you.<br>
+          *BRIGHT PALM<br>
+
+          *Fruity Warm. Apricot blooms. Coconut milk. Find your shine. <br>
+
+          *250 ml/8.4 fl oz<br>
+          *Domestic.<br><br><br><a>%18</a></p>
+    </div>
+  </div>
+  <div class="column mists">
+    <div class="content">
+    <img src="v_mist/v_mist4.jpg" alt="Blush" style="width:100%">
+      <h4>Fragrance Mists</h4>
+      <p>Sunny days ahead. Our top scents brighten up with a luminous twist beaming with golden woods, 
+          sheer musks, solar blooms and amber accords. It’s a fragrance adventure, and it starts with you.<br>
+          *PURE SEDUCTION SUNKISSED<br>
+          *Fruity Floral. Tiare flower. Guava glow. Pure Seduction in the sun.<br>
+          *250 ml/8.4 fl oz<br>
+          *Domestic<br><br><br><a>$18</a></p>
+    </div>
+  </div>
+<div class="column mists">
+    <div class="content">
+    <img src="v_mist/v_mist5.jpg" alt="velvetShimmer" style="width:100%">
+      <h4>Fragrance Mists</h4>
+      <p>It’s elemental. From untamed poppies to passion flowers and desert lilies, this season’s florals are
+          raw, natural and captured in the wild. It’s a fragrance adventure, 
+          and it starts with you.<br>
+          *WILD PRIMROSE<br>
+          *Floral. Primrose twist. Luscious gardenia. Endless blooms.<br>
+          *250 ml/8.4 fl oz<br>
+          *Domestic<br><br><br><a>$18</a></p><br>
+    </div>
+  </div>
+
+
+ 
+  <div class="column bodylotion">
+    <div class="content">
+      <img src="v_bodylotion/v_body1.jpg" alt="Car" style="width:100%">
+      <h4>Sunkissed Fragrance Lotions</h4>
+      <p>Our top scents get a luminous twist for Spring: Golden woods, sheer musks,
+          solar blooms and amber accords. Smooth on the lotion,
+          then finish with Mist for a longer-lasting fragrance experience.<br>
+*BARE VANILLA SUNKISSED
+*Warm. Vanilla glimmer. Amber beams. Bare Vanilla in the sun.<br>
+*236 ml/8 fl oz<br>
+*Domestic<br><br><br><a>$16</a></p>
+    </div>
+  </div>
+  <div class="column bodylotion">
+    <div class="content">
+        
+    <img src="v_bodylotion/v_body2.jpg" alt="Car" style="width:100%">
+      <h4>Wild Blooms Fragrance Lotions</h4>
+      <p>Our top scents get a luminous twist for Spring: Golden woods, sheer musks,
+          solar blooms and amber accords. Smooth on the lotion,
+          then finish with Mist for a longer-lasting fragrance experience.<br>
+*BARE VANILLA SUNKISSED
+*Warm. Vanilla glimmer. Amber beams. Bare Vanilla in the sun.<br>
+*236 ml/8 fl oz<br>
+*Domestic<br><br><br><a>$16</a></p>
+    </div>
+  </div>
+  <div class="column bodylotion">
+    <div class="content">
+    <img src="v_bodylotion/v_body3.jpg" alt="Car" style="width:100%">
+      <h4>Fresh Oasis Fragrance Lotions</h4>
+      <p>Our top scents get a luminous twist for Spring: Golden woods, sheer musks,
+          solar blooms and amber accords. Smooth on the lotion,
+          then finish with Mist for a longer-lasting fragrance experience.<br>
+*BARE VANILLA SUNKISSED
+*Warm. Vanilla glimmer. Amber beams. Bare Vanilla in the sun.<br>
+*236 ml/8 fl oz<br>
+*Domestic<br><br><br><a>$16</a></p>
+      <input type="text" name="quantity" value="1">
+      <input type="hidden" name="name" value="Bombshell Intense Eau de Parfum">
+    <input type="hidden" name="price" value="16">
+    <input type="submit" name="addCart" value="Add to Card">
+      
+    </div>
+  </div>
+
+      <div class="column bodylotion">
+    <div class="content">
+    <img src="v_bodylotion/v_body4.jpg" alt="Car" style="width:100%">
+      <h4>Winter Dazzle Fragrance Lotions</h4>
+      <p>Our top scents get a luminous twist for Spring: Golden woods, sheer musks,
+          solar blooms and amber accords. Smooth on the lotion,
+          then finish with Mist for a longer-lasting fragrance experience.<br>
+*BARE VANILLA SUNKISSED
+*Warm. Vanilla glimmer. Amber beams. Bare Vanilla in the sun.<br>
+*236 ml/8 fl oz<br>
+*Domestic<br><br><br><a>$16</a></p>
+    </div>
+  </div>
+      <div class="column bodylotion">
+    <div class="content">
+    <img src="v_bodylotion/v_body5.jpg" alt="Car" style="width:100%">
+      <h4>Fragrance Lotion</h4>
+      <p>Our top scents get a luminous twist for Spring: Golden woods, sheer musks,
+          solar blooms and amber accords. Smooth on the lotion,
+          then finish with Mist for a longer-lasting fragrance experience.<br>
+*BARE VANILLA SUNKISSED
+*Warm. Vanilla glimmer. Amber beams. Bare Vanilla in the sun.<br>
+*236 ml/8 fl oz<br>
+*Domestic<br><br><br><a>$16</a></p>
+    </div>
+  </div>
+
+  
+     <div class="column sets">
+    <div class="content">
+      <img src="v_set/v_sets1.jpg" alt="Car" style="width:100%">
+      <h4>Very Sexy Night Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you:
+          Very Sexy Night is back. Notes of Black Plum and Apple sparkle against dark florals. 
+          Velvety Woods and sultry musks add sensual depth. Intoxicating and warm, this Night is definitely not for sleeping.<br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br> <a>$175</a></p>
+    </div>
+  </div>
+  <div class="column sets">
+    <div class="content">
+        
+    <img src="v_set/v_sets2.jpg" alt="Car" style="width:100%">
+      <h4>Heavenly Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you:
+          Very Sexy Night is back. Notes of Black Plum and Apple sparkle against dark florals. 
+          Velvety Woods and sultry musks add sensual depth. Intoxicating and warm, this Night is definitely not for sleeping.<br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br> <a>$175</a></p>
+    </div>
+  </div>
+  <div class="column sets">
+    <div class="content">
+    <img src="v_set/v_sets3.jpg"  alt="Car" style="width:100%">
+      <h4>Dream Angel Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you:
+          Very Sexy Night is back. Notes of Black Plum and Apple sparkle against dark florals. 
+          Velvety Woods and sultry musks add sensual depth. Intoxicating and warm, this Night is definitely not for sleeping.<br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br> <a>$175</a></p>
+      <input type="text" name="quantity" value="1">
+      <input type="hidden" name="name" value="Dream Angel Eau de Parfum">
+    <input type="hidden" name="price" value="175">
+    <input type="submit" name="addCart" value="Add to Card">
+    </div>
+  </div>
+      <div class="column sets">
+    <div class="content">
+    <img src="v_set/v_sets4.jpg"  alt="Car" style="width:100%">
+      <h4>Tease Rebel Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you:
+          Very Sexy Night is back. Notes of Black Plum and Apple sparkle against dark florals. 
+          Velvety Woods and sultry musks add sensual depth. Intoxicating and warm, this Night is definitely not for sleeping.<br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br> <a>$175</a></p>
+    </div>
+  </div>
+      <div class="column sets">
+    <div class="content">
+    <img src="v_set/v_sets5.jpg"  alt="Car" style="width:100%">
+      <h4>Love Eau de Parfum</h4>
+      <p>City lights. Endless possibilities. Daring to follow the night wherever it takes you:
+          Very Sexy Night is back. Notes of Black Plum and Apple sparkle against dark florals. 
+          Velvety Woods and sultry musks add sensual depth. Intoxicating and warm, this Night is definitely not for sleeping.<br>
+          *The Night fragrance you love, back with a whole new look.<br>
+          *Eau de Parfum is our most concentrated, pure version of the fragrance<br>
+          *Fragrance type: Floriental Warm<br>
+          *Notes: Black Plum, Velvet Woods and Luscious Apple<br>
+          *100 ml/3.4 fl oz<br>
+          *Domestic<br><br><br> <a>$175</a></p>
+    </div>
+  </div>
+</div>
+    
+    </form>
+    
+<!-- END GRID -->
+
+<!-- END MAIN -->
+
+
+
+
+</body>
+</html>
